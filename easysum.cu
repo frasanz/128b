@@ -1,3 +1,5 @@
+/* It sums 5 times two 128bits integers using CUDA */
+
 #include <stdio.h>
 #include <cuda.h>
 
