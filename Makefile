@@ -4,11 +4,13 @@ LIBS=-lgmp
 
 all: easysum easymul
 
-easymul: easymul.cu
-	$(CC) $(ARCH) easymul.cu -o $(BIN_DIR)easymul
+easymul: easymul.cu show.o
+	$(CC) $(ARCH) $(LIBS) show.o easymul.cu -o $(BIN_DIR)easymul
+show.o: show.cu
+	$(CC) -c show.cu
 
-easysum: easysum.cu
-	$(CC) $(ARCH) $(LIBS) easysum.cu -o $(BIN_DIR)easysum
+easysum: easysum.cu show.o
+	$(CC) $(ARCH) $(LIBS) show.o easysum.cu -o $(BIN_DIR)easysum
 
 clean:
 	rm -f *.o easysum easymul
