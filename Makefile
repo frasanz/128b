@@ -1,6 +1,5 @@
 CC=nvcc
 ARCH="-arch=sm_20"
-BIN_DIR:=./
 
 all: easysum easymul
 
@@ -11,4 +10,4 @@ easysum: easysum.cu
 	$(CC) $(ARCH) easysum.cu -o $(BIN_DIR)easysum
 
 clean:
-	rm -f $(BIN_DIR)* ; rm -f *.o
+	rm -f *.o easysum easymul
